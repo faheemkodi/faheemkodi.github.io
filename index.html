@@ -1,4 +1,3 @@
-<!-- prettier-ignore -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,32 +12,51 @@
     <style>
       html,
       body {
-        height: 100%;
         margin: 0;
         padding: 0;
-        overflow: hidden; /* Prevent scrollbars */
+        height: 100%;
       }
-      iframe {
+      .pdf-container {
         width: 100%;
         height: 100vh;
-        border: none;
+      }
+      /* Hide iframe on mobile and show fallback */
+      @media (max-width: 768px) {
+        .pdf-container {
+          display: none;
+        }
+        .fallback {
+          display: block;
+          text-align: center;
+          margin: 20px;
+          font-size: 1.1rem;
+        }
       }
       .fallback {
         display: none;
-        text-align: center;
-        margin-top: 20px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
       }
     </style>
   </head>
   <body>
-    <iframe src="faheem_kodi_resume.pdf" title="Faheem Kodi Resume">
-      <!-- Fallback Content -->
-      <div class="fallback">
-        <p>
-          Unable to display the PDF. Please
-          <a href="faheem_kodi_resume_v1.pdf" download>click here to download</a> the resume.
-        </p>
-      </div>
-    </iframe>
+    <!-- PDF Viewer for Desktop -->
+    <div class="pdf-container">
+      <iframe
+        src="faheem_kodi_resume.pdf"
+        title="Faheem Kodi Resume"
+      ></iframe>
+    </div>
+
+    <!-- Fallback for Mobile -->
+    <div class="fallback">
+      <p>
+        This PDF cannot be displayed on mobile. Please
+        <a href="faheem_kodi_resume_v1.pdf" download>click here to download</a> the resume.
+      </p>
+    </div>
   </body>
 </html>
