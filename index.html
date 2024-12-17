@@ -16,16 +16,29 @@
         height: 100%;
         margin: 0;
         padding: 0;
+        overflow: hidden; /* Prevent scrollbars */
       }
-      embed {
+      iframe {
         width: 100%;
-        min-height: 100%;
+        height: 100vh;
+        border: none;
+      }
+      .fallback {
+        display: none;
+        text-align: center;
+        margin-top: 20px;
       }
     </style>
   </head>
   <body>
-    <body>
-      <embed src="FaheemKodiResume.pdf" type="application/pdf" />
-    </body>
+    <iframe src="faheem_kodi_resume.pdf" title="Faheem Kodi Resume">
+      <!-- Fallback Content -->
+      <div class="fallback">
+        <p>
+          Unable to display the PDF. Please
+          <a href="faheem_kodi_resume.pdf" download>click here to download</a> the resume.
+        </p>
+      </div>
+    </iframe>
   </body>
 </html>
